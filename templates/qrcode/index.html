@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title></title>
+
+    <link href="/static/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/css/base.css" rel="stylesheet" />
+    <link href="/static/css/main.css" rel="stylesheet" />
+
+
+</head>
+<body style="min-height:800px; height: auto">
+
+                <div class="col-xs-12 box0">
+                    <div class="col-xs-3 col-xs-offset-4 text-center box1 ">                                            
+                            <div class="col-xs-1"></div>                      
+                            <div class="col-xs-10 white-box ">
+                                <div class="row-fluid ">                
+                                    <a href="/qrcode/index#" id="qrimg" >
+                                        <img class="img-responsive"  src="/static/images/qrcode.jpg" alt="二维码图片暂时无法显示" class="img-rounded">
+                                    </a>
+                                </div>
+                                <div class="row"> 
+                                    <p class="sub_title" >点击二维码刷新图片</p>                                       
+                                </div>
+                                <div class="row" >                                    
+                                    <p class="p1" id="mgrinfo">
+                                    {% if devid != "0" %}
+                                        <p class="p1" id="mgrinfo">设备{{devid}}正在扫码</p>{%else%}<p class="p1" id="mgrinfo">请选择设备号后扫码</p>{% endif %}
+                                    <p class="hidden-p">1</p>
+                                    <p class="hidden-p">1</p>
+                                    <div class="btn-group" role="group" aria-label="...">
+                                      <button type="button" class="btn btn-default" id="startbutton">刷新</button>
+                                      <button type="button" class="btn btn-default" id="endbutton"><a class="simple-a" href="/qrcode/uploadinfo/99">停止</a></button>
+                                        <div class="btn-group">
+                                          {% if devid == "0" %}
+                                          <button type="button" class="btn btn-default" id="choosedev">选择设备号</button>
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                          </button>
+
+                                          {%else%}
+                                          <button type="button" class="btn btn-default" id="choosedev" disabled="disabled">请停止后再试</button>
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled="diabled">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                          </button>
+                                          {% endif %}
+
+                                          <ul class="dropdown-menu">
+                                            <li><a href="/qrcode/uploadinfo/1" class = "choose">1：张艳</a></li>
+                                            <li><a href="/qrcode/uploadinfo/2" class = "choose">2：俞芳</a></li>
+                                            <li><a href="/qrcode/uploadinfo/3" class = "choose">3：杨李莉</a></li>
+                                            <li><a href="/qrcode/uploadinfo/4" class = "choose">4：王瑞丽</a></li>
+                                            <li><a href="/qrcode/uploadinfo/5" class = "choose">5：陈慧敏</a></li>
+                                            <li><a href="/qrcode/uploadinfo/6" class = "choose">6：韩国靖</a></li>
+                                            <li><a href="/qrcode/uploadinfo/7" class = "choose">7：刘春燎</a></li>
+                                            <li><a href="/qrcode/uploadinfo/8" class = "choose">8：孙吴云</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="/qrcode/uploadinfo/9" class = "choose">9 ：备用</a></li>
+                                            <li><a href="/qrcode/uploadinfo/10" class = "choose">10：备用</a></li>
+                                            <li><a href="/qrcode/uploadinfo/11" class = "choose">11：备用</a></li>
+                                                                                   
+<!-- 通过为按钮的背景设置 opacity 属性就可以呈现出无法点击的效果。 -->
+<!-- 为 <button> 元素添加 disabled 属性，使其表现出禁用状态。 -->
+                                          </ul>
+                                        </div>
+
+
+                                    </div>
+                                    <p class="hidden-p">1</p>
+
+
+                                </div>
+                            </div>                     
+                            <div class="col-lg-1"></div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <span class="fixedspan">
+                            <p>
+                                <button type="button" class="btn btn-default " id="clearcache">清理缓存
+                                </button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-primary " id = "information"  data-toggle="popover" title="简介" data-placement="left" data-content="1.下拉选择管理员后启动扫码，等待半分钟后可点击图片或者刷新按钮获取图片
+                                2.请等待上一位管理员停止扫码后再开始选择扫码
+                                3.采集完成后可去协同查看采集的帐号的状态，部分为采集中可重置为未采集，然后再次扫码">简单介绍
+                                </button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-success" id="changebg">更换背景
+                                </button>
+                            </p>
+                        </span>    
+
+                    </div>
+                </div>
+
+ 
+
+</body>
+
+    <script src="/static/js/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="/static/js/index.js"></script>
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+
